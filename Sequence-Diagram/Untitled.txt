@@ -1,0 +1,19 @@
+title This is a title
+
+participant Guest
+participant Admin/Manager
+participant Room List System
+participant Reservation System
+
+Guest->Admin/Manager:Query Room Availability
+Admin/Manager->Room List System:Check Availability
+Guest<--Admin/Manager:Room Available
+Guest->Admin/Manager:Confirm Room
+Guest<--Admin/Manager:Request Client Details
+Guest->Admin/Manager:Confirm Details
+
+Admin/Manager->Room List System:Provisionaly Books Room
+Room List System->Reservation System:Creates Reservation
+Admin/Manager<--Room List System:Reserves Room
+Admin/Manager->Reservation System:Confirm Reservation
+Guest<--Admin/Manager:Confirm Reservation
